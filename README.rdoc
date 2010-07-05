@@ -1,6 +1,14 @@
 = dm-devise
 
-Description goes here.
+dm-devise lets you use [devise](http://github.com/plataformatec/devise) with
+DataMapper.
+
+== TODO
+
+* README
+* generators
+* example app
+* publish gem
 
 == Note on Patches/Pull Requests
  
