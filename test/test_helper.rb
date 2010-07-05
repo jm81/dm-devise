@@ -1,5 +1,5 @@
 ENV["RAILS_ENV"] = "test"
-DEVISE_ORM = :data_mapper
+DEVISE_ORM = (ENV["DEVISE_ORM"] || :data_mapper).to_sym
 DEVISE_PATH = ENV['DEVISE_PATH']
 
 puts "\n==> Devise.orm = #{DEVISE_ORM.inspect}"

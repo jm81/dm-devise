@@ -5,6 +5,18 @@ require 'rake/testtask'
 require 'rake/rdoctask'
 require File.join(File.dirname(__FILE__), 'lib', 'dm-devise', 'version')
 
+desc 'Default: run tests for all DataMapper ORM setups.'
+task :default => :pre_commit
+
+desc 'Run Devise tests for all DataMapper ORM setups.'
+task :pre_commit do
+  Dir[File.join(File.dirname(__FILE__), 'test', 'orm', '*.rb')].each do |file|
+    orm = File.basename(file).split(".").first
+    ENV['DEVISE_PATH'] ||= File.expand_path('../devise')
+    system "rake test DEVISE_ORM=#{orm} DEVISE_PATH=#{ENV['DEVISE_PATH']}"
+  end
+end
+
 desc 'Run Devise tests using DataMapper. Specify path to devise with DEVISE_PATH'
 Rake::TestTask.new(:test) do |test|
   ENV['DEVISE_PATH'] ||= File.expand_path('../devise')
@@ -21,8 +33,6 @@ Rake::TestTask.new(:test) do |test|
 end
 
 task :test => :check_dependencies
-
-task :default => :test
 
 desc 'Generate documentation for dm-devise.'
 Rake::RDocTask.new(:rdoc) do |rdoc|
