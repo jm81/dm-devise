@@ -6,7 +6,6 @@ DataMapper.
 == TODO
 
 * README
-* generators
 * example app
 * publish gem
 
