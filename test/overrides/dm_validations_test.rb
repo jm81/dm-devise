@@ -1,12 +1,6 @@
 require 'test_helper'
 
-# This file contains test cases that override devise tests, in the cases that
-# the difference is values from DM versus those expected by devise is not
-# particularly important and getting DM to pass the original devise tests would
-# be difficult.
-#
-# For each test, an explanation is given as to why I chose to override the test,
-# and the original assertion is commented above the DM-specific assertion.
+# See data_mapper_test.rb in this folder for what this file is doing.
 
 class ValidatableTest < ActiveSupport::TestCase
   undef test_should_require_a_password_with_minimum_of_6_characters
@@ -30,39 +24,6 @@ class ValidatableTest < ActiveSupport::TestCase
     assert_equal 'must be between 6 and 20 characters long', user.errors[:password].join
   end
 
-end
-
-class TrackableHooksTest < ActionController::IntegrationTest
-
-  undef test_current_and_last_sign_in_timestamps_are_updated_on_each_sign_in
-
-  # DataMapper uses a DateTime type where ActiveRecord uses Time. The test is
-  # that the tested properties are being set, so just check for kind_of?(DateTime)
-  # instead of kind_of?(Time)
-  test "current and last sign in timestamps are updated on each sign in" do
-    user = create_user
-    assert_nil user.current_sign_in_at
-    assert_nil user.last_sign_in_at
-
-    sign_in_as_user
-    user.reload
-
-    # assert_kind_of Time, user.current_sign_in_at
-    # assert_kind_of Time, user.last_sign_in_at
-    assert_kind_of DateTime, user.current_sign_in_at
-    assert_kind_of DateTime, user.last_sign_in_at
-
-    assert_equal user.current_sign_in_at, user.last_sign_in_at
-    assert user.current_sign_in_at >= user.created_at
-
-    visit destroy_user_session_path
-    new_time = 2.seconds.from_now
-    Time.stubs(:now).returns(new_time)
-
-    sign_in_as_user
-    user.reload
-    assert user.current_sign_in_at > user.last_sign_in_at
-  end
 end
 
 class AuthenticationWithScopesTest < ActionController::IntegrationTest

@@ -19,6 +19,7 @@ end
 
 desc 'Run Devise tests using DataMapper. Specify path to devise with DEVISE_PATH'
 Rake::TestTask.new(:test) do |test|
+  ENV['DEVISE_ORM'] ||= 'data_mapper'
   ENV['DEVISE_PATH'] ||= File.expand_path('../devise')
   unless File.exist?(ENV['DEVISE_PATH'])
     puts "Specify the path to devise (e.g. rake DEVISE_PATH=/path/to/devise). Not found at #{ENV['DEVISE_PATH']}"
@@ -27,8 +28,10 @@ Rake::TestTask.new(:test) do |test|
   test.libs << 'lib' << 'test'
   test.libs << "#{ENV['DEVISE_PATH']}/lib"
   test.libs << "#{ENV['DEVISE_PATH']}/test"
-  # Need to ensure overrides_test is loaded last
-  test.test_files = FileList["#{ENV['DEVISE_PATH']}/test/**/*_test.rb"] + ['test/overrides_test.rb']
+  # Need to ensure overrides tests are loaded last
+  overrides =  ['test/overrides/data_mapper_test.rb']
+  overrides += ['test/overrides/dm_validations_test.rb'] if ENV['DEVISE_ORM'] == 'data_mapper'
+  test.test_files = FileList["#{ENV['DEVISE_PATH']}/test/**/*_test.rb"] + overrides
   test.verbose = true
 end
 
