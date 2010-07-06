@@ -8,13 +8,13 @@ gem "mocha", :require => false
 gem "bcrypt-ruby", :require => "bcrypt"
 gem 'devise',            '~> 1.1.0', :git => 'git://github.com/plataformatec/devise'
 
-gem 'dm-core',           '~> 1.0.0', :git => 'git://github.com/datamapper/dm-core'
-gem 'dm-migrations',     '~> 1.0.0', :git => 'git://github.com/datamapper/dm-migrations'
-gem 'dm-sqlite-adapter', '~> 1.0.0', :git => 'git://github.com/datamapper/dm-sqlite-adapter'
-gem 'dm-serializer',     '~> 1.0.0', :git => 'git://github.com/datamapper/dm-serializer'
-gem 'dm-timestamps',     '~> 1.0.0', :git => 'git://github.com/datamapper/dm-timestamps'
+gem 'dm-core',           '~> 1.0.0'
+gem 'dm-migrations',     '~> 1.0.0'
+gem 'dm-sqlite-adapter', '~> 1.0.0'
+gem 'dm-serializer',     '~> 1.0.0'
+gem 'dm-timestamps',     '~> 1.0.0'
 gem 'dm-rails',          '~> 1.0.0', :git => 'git://github.com/datamapper/dm-rails'
 
 group :data_mapper do
-  gem 'dm-validations',    '~> 1.0.0', :git => 'git://github.com/datamapper/dm-validations'
+  gem 'dm-validations',    '~> 1.0.0'
 end
