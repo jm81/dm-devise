@@ -1,13 +1,71 @@
 = dm-devise
 
-dm-devise lets you use [devise](http://github.com/plataformatec/devise) with
-DataMapper.
+dm-devise lets you use devise (http://github.com/plataformatec/devise) with
+DataMapper. The gem gives you the options of 2 ORM setups depending on what
+library you wish to use for validations:
+
+:data_mapper::
+  Uses dm-validations. This involves a bit of monkey-patching, but you need to
+  use this if you want auto-validations in *any* of your models.
+:data_mapper_active_model::
+  Uses ActiveModel::Validations. *Do not use if you require 'dm-validations'
+  anywhere in your app (or include it in your Gemfile). Things will break.*
+  The advantage to this is ActiveModel's I18n support for error messages, and
+  it uses the same validations lib as devise does by default.
+
+dm-devise is intended for use with Rails 3 and devise 1.1. It may work with
+earlier versions, but it's not been tested (if you try, please let Jared Morgan
+(http://github.com/jm81) know how it goes.)
+
+This README only covers dm-devise specifics. Make sure to read the devise
+README http://github.com/plataformatec/devise/blob/master/README.rdoc
+
+== Installation
+
+**Rails, devise and dm-rails all need to be following master** while rails and
+devise are in beta/pre-release stage.
+
+Make sure the following are in your Gemfile (the :git => 'path' arguments are
+needed for now):
+
+  gem "rails", :git => "git://github.com/rails/rails.git"
+
+  gem 'dm-core',           '~> 1.0.0'
+  gem 'dm-migrations',     '~> 1.0.0'
+  gem 'dm-sqlite-adapter', '~> 1.0.0' # or your preferred adapter
+  gem 'dm-serializer',     '~> 1.0.0'
+  gem 'dm-timestamps',     '~> 1.0.0'
+  gem 'dm-rails',          '~> 1.0.0', :git => 'git://github.com/datamapper/dm-rails'
+  gem 'dm-validations',    '~> 1.0.0' # **Do not include if using data_mapper_active_model
+
+  gem 'devise',            '~> 1.1.0', :git => 'git://github.com/plataformatec/devise'
+  gem 'dm-devise',         '~> 0.1.0', :git => 'git://github.com/jm81/dm-devise'
+
+If you're using data_mapper_active_model *don't* include dm-validations in your
+Gemfile. Note that it's fine to follow master on DM gems other than dm-rails,
+but dm-rails is the only one where it's needed.
+
+Run the generator:
+
+  rails generate devise:install
+
+The generator will install an initializer which describes ALL Devise's
+configuration options and you MUST take a look at it. Make sure to specify
+either data_mapper (for using dm-validations) or data_mapper_active_model
+(ActiveModel::Validations) as the orm in the configuration file.
+
+To add Devise to any of your models using the generator:
+
+  rails generate data_mapper:devise MODEL
+
+Read the README for devise at http://github.com/plataformatec/devise/blob/master/README.rdoc
 
 == TODO
 
-* README
-* example app
-* publish gem
+* Example app
+* Publish gem
+* Updates when Rails 3 / Devise 1.1 are released (remove :git sources in Gemfile)
+* Rails templates
 
 == Note on Patches/Pull Requests
  
@@ -18,6 +76,20 @@ DataMapper.
 * Commit, do not mess with rakefile, version, or history.
   (if you want to have your own version, that is fine but bump version in a commit by itself I can ignore when I pull)
 * Send me a pull request. Bonus points for topic branches.
+
+== Maintainers
+
+* Jared Morgan (http://github.com/jm81)
+
+== Contributors
+
+http://github.com/jm81/dm-devise/contributors
+
+== Bugs and Feedback
+
+For dm-devise specific issues, please create an issue on GitHub at:
+
+http://github.com/jm81/dm-devise/issues
 
 == Copyright
 
