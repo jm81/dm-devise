@@ -8,8 +8,8 @@ library you wish to use for validations:
   Uses dm-validations. This involves a bit of monkey-patching, but you need to
   use this if you want auto-validations in *any* of your models.
 :data_mapper_active_model::
-  Uses ActiveModel::Validations. *Do not use if you require 'dm-validations'
-  anywhere in your app (or include it in your Gemfile). Things will break.*
+  Uses ActiveModel::Validations. Do not use if you require 'dm-validations'
+  anywhere in your app (or include it in your Gemfile). Things will break.
   The advantage to this is ActiveModel's I18n support for error messages, and
   it uses the same validations lib as devise does by default.
 
@@ -22,7 +22,7 @@ README http://github.com/plataformatec/devise/blob/master/README.rdoc
 
 == Installation
 
-**Rails, devise and dm-rails all need to be following master** while rails and
+Rails, devise and dm-rails all need to be following master while rails and
 devise are in beta/pre-release stage.
 
 Make sure the following are in your Gemfile (the :git => 'path' arguments are
@@ -36,12 +36,12 @@ needed for now):
   gem 'dm-serializer',     '~> 1.0.0'
   gem 'dm-timestamps',     '~> 1.0.0'
   gem 'dm-rails',          '~> 1.0.0', :git => 'git://github.com/datamapper/dm-rails'
-  gem 'dm-validations',    '~> 1.0.0' # **Do not include if using data_mapper_active_model
+  gem 'dm-validations',    '~> 1.0.0' # Do not include if using data_mapper_active_model
 
   gem 'devise',            '~> 1.1.0', :git => 'git://github.com/plataformatec/devise'
   gem 'dm-devise',         '~> 0.1.0', :git => 'git://github.com/jm81/dm-devise'
 
-If you're using data_mapper_active_model *don't* include dm-validations in your
+If you're using data_mapper_active_model do not include dm-validations in your
 Gemfile. Note that it's fine to follow master on DM gems other than dm-rails,
 but dm-rails is the only one where it's needed.
 
