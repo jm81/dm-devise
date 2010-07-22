@@ -4,7 +4,7 @@ class Admin
   property :id,   Serial
   property :username, String
   
-  devise :database_authenticatable, :registerable, :timeoutable, :recoverable
+  devise :database_authenticatable, :registerable, :timeoutable, :recoverable, :lockable, :unlock_strategy => :time
   
   def self.create!(*args)
     create(*args)
