@@ -20,6 +20,8 @@ earlier versions, but it's not been tested (if you try, please let Jared Morgan
 This README only covers dm-devise specifics. Make sure to read the devise
 README http://github.com/plataformatec/devise/blob/master/README.rdoc
 
+Last tested against devise master: 2010-07-22, commit abfd7e5a4b6abba762dceb59ee6f646ea8b88710
+
 == Installation
 
 Rails, devise and dm-rails all need to be following master while rails and
