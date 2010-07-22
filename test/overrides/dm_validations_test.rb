@@ -26,7 +26,7 @@ class ValidatableTest < ActiveSupport::TestCase
 
 end
 
-class AuthenticationWithScopesTest < ActionController::IntegrationTest
+class AuthenticationOthersTest < ActionController::IntegrationTest
 
   undef test_registration_in_xml_format
 
