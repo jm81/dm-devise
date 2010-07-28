@@ -1,20 +1,14 @@
+require 'shared_user'
+require File.join(File.dirname(__FILE__), '../data_mapper/shim.rb')
+
 class User
   include DataMapper::Resource
 
   property :id, Serial
   property :username, String
-  
-  devise :database_authenticatable, :confirmable, :lockable, :recoverable,
-         :registerable, :rememberable, :timeoutable, :token_authenticatable,
-         :trackable, :validatable
-
+  property :facebook_token, String
   timestamps :at
-  
-  def self.create!(*args)
-    create(*args)
-  end
-  
-  def self.destroy_all
-    all.destroy
-  end
+
+  include SharedUser
+  include Shim
 end

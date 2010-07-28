@@ -1,12 +1,12 @@
+require 'shared_admin'
+require File.join(File.dirname(__FILE__), '../data_mapper/shim.rb')
+
 class Admin
-  include DataMapper::Resource  
-  
+  include DataMapper::Resource
+
   property :id,   Serial
   property :username, String
-  
-  devise :database_authenticatable, :registerable, :timeoutable, :recoverable, :lockable, :unlock_strategy => :time
-  
-  def self.create!(*args)
-    create(*args)
-  end
+
+  include SharedAdmin
+  include Shim
 end

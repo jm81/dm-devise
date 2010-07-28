@@ -16,6 +16,8 @@ Webrat.configure do |config|
   config.open_error_files = false
 end
 
+Devise::Oauth.test_mode!
+
 # Add support to load paths so we can overwrite broken webrat setup
 $:.unshift "#{DEVISE_PATH}/test/support"
 Dir["#{DEVISE_PATH}/test/support/**/*.rb"].each { |f| require f }
