@@ -6,7 +6,6 @@ gem "warden", "0.10.7"
 gem "webrat", "0.7.0"
 gem "mocha", :require => false
 gem "bcrypt-ruby", :require => "bcrypt"
-gem 'devise',            '~> 1.1.0', :git => 'git://github.com/plataformatec/devise'
 
 gem 'dm-core',           '~> 1.0.0'
 gem 'dm-migrations',     '~> 1.0.0'
