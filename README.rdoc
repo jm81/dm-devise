@@ -20,17 +20,14 @@ earlier versions, but it's not been tested (if you try, please let Jared Morgan
 This README only covers dm-devise specifics. Make sure to read the devise
 README http://github.com/plataformatec/devise/blob/master/README.rdoc
 
-Last tested against devise master: 2010-07-22, commit abfd7e5a4b6abba762dceb59ee6f646ea8b88710
+Last tested against devise release: v1.1.1
+
+Last tested against devise master: 2010-07-27, commit 879b64edc945e3531e65abf4a6b7970052927e39
 
 == Installation
 
-Rails, devise and dm-rails all need to be following master while rails and
-devise are in beta/pre-release stage.
-
-Make sure the following are in your Gemfile (the :git => 'path' arguments are
-needed for now):
-
-  gem "rails", :git => "git://github.com/rails/rails.git"
+Add devise, dm-devise and dm gems to your Gemfile. The following gems are
+required (although devise version may differ)
 
   gem 'dm-core',           '~> 1.0.0'
   gem 'dm-migrations',     '~> 1.0.0'
@@ -40,8 +37,8 @@ needed for now):
   gem 'dm-rails',          '~> 1.0.0', :git => 'git://github.com/datamapper/dm-rails'
   gem 'dm-validations',    '~> 1.0.0' # Do not include if using data_mapper_active_model
 
-  gem 'devise',            '~> 1.1.0', :git => 'git://github.com/plataformatec/devise'
-  gem 'dm-devise',         '~> 0.1.0', :git => 'git://github.com/jm81/dm-devise'
+  gem 'devise',            '~> 1.1.1'
+  gem 'dm-devise',         '~> 1.1.0'
 
 If you're using data_mapper_active_model do not include dm-validations in your
 Gemfile. Note that it's fine to follow master on DM gems other than dm-rails,
@@ -65,8 +62,6 @@ Read the README for devise at http://github.com/plataformatec/devise/blob/master
 == TODO
 
 * Example app
-* Publish gem
-* Updates when Rails 3 / Devise 1.1 are released (remove :git sources in Gemfile)
 * Rails templates
 
 == Note on Patches/Pull Requests
