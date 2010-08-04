@@ -51,8 +51,7 @@ module Devise
           if options.is_a?(Hash) && options[:validate] == false
             save!
           else
-            # valid? checking isn't added automatically with ActiveModel
-            valid? && super()
+            super()
           end
         end
 

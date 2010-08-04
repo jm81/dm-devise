@@ -8,8 +8,9 @@ module Devise
       module Hook
         def devise_modules_hook!
           extend Schema
-          include Compatibility
           include ActiveModel::Validations
+          include ActiveModelCompatibility
+          include Compatibility
           class << self; attr_reader :descendants; end;
 
           def self.validates_uniqueness_of(*fields)
@@ -31,6 +32,18 @@ module Devise
             target.errors.add(attribute, :taken)
             return false
           end
+        end
+      end
+
+      module ActiveModelCompatibility
+        # include ActiveModel::Validations does not make save check valid?.
+        # This may not be the best solution, but it seems to work. Note that
+        # Compatibility is included after this module; its #save method handles
+        # the :validate => false option.
+        def save(*args)
+          retval = valid? && super(*args)
+          assert_save_successful(:save, retval)
+          retval
         end
       end
     end
