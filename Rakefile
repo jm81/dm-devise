@@ -28,10 +28,7 @@ Rake::TestTask.new(:test) do |test|
   test.libs << 'lib' << 'test'
   test.libs << "#{ENV['DEVISE_PATH']}/lib"
   test.libs << "#{ENV['DEVISE_PATH']}/test"
-  # Need to ensure overrides tests are loaded last
-  overrides =  ['test/overrides/data_mapper_test.rb']
-  overrides += ['test/overrides/dm_validations_test.rb'] if ENV['DEVISE_ORM'] == 'data_mapper'
-  test.test_files = FileList["#{ENV['DEVISE_PATH']}/test/**/*_test.rb"] + overrides
+  test.test_files = FileList["#{ENV['DEVISE_PATH']}/test/**/*_test.rb"] + FileList['test/**/*_test.rb']
   test.verbose = true
 end
 
