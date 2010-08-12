@@ -59,7 +59,7 @@ begin
     gem.add_dependency 'dm-serializer',  '~> 1.0.0'
     gem.add_dependency 'dm-timestamps',  '~> 1.0.0'
     gem.add_dependency 'dm-rails',       '~> 1.0.0'
-    gem.add_dependency 'devise'
+    gem.add_dependency 'devise',         '~> 1.1.0'
     gem.add_dependency 'warden',         '~> 0.10.7'
     gem.add_dependency 'bcrypt-ruby',    '~> 2.1.2'
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
