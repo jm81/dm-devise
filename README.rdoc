@@ -34,15 +34,14 @@ required (although devise version may differ)
   gem 'dm-sqlite-adapter', '~> 1.0.0' # or your preferred adapter
   gem 'dm-serializer',     '~> 1.0.0'
   gem 'dm-timestamps',     '~> 1.0.0'
-  gem 'dm-rails',          '~> 1.0.0', :git => 'git://github.com/datamapper/dm-rails'
+  gem 'dm-rails',          '~> 1.0.3'
   gem 'dm-validations',    '~> 1.0.0' # Do not include if using data_mapper_active_model
 
   gem 'devise',            '~> 1.1.1'
   gem 'dm-devise',         '~> 1.1.0'
 
 If you're using data_mapper_active_model do not include dm-validations in your
-Gemfile. Note that it's fine to follow master on DM gems other than dm-rails,
-but dm-rails is the only one where it's needed.
+Gemfile.
 
 Run the generator:
 
