@@ -1,4 +1,4 @@
-require 'devise'
+require 'dm-devise'
 require 'devise/orm/data_mapper/compatibility'
 require 'devise/orm/data_mapper/schema'
 require 'devise/orm/data_mapper/date_time'

@@ -1,4 +1,5 @@
-require 'devise'
+require 'dm-devise'
+require 'devise/schema'
 
 module Devise
   module Orm
