@@ -12,7 +12,6 @@ module Devise
           include ActiveModel::Validations
           include ActiveModelCompatibility
           include Compatibility
-          class << self; attr_reader :descendants; end;
 
           def self.validates_uniqueness_of(*fields)
             validates_with UniquenessValidator, _merge_attributes(fields)
