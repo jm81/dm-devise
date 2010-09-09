@@ -22,18 +22,18 @@ README http://github.com/plataformatec/devise/blob/master/README.rdoc
 
 Last tested against devise release: v1.1.1
 
-Last tested against devise master: 2010-08-14, commit 81c49c69df752a6c8c408d660768442911b324f4
+Last tested against devise master: 2010-08-14, commit 0f0eb4e8cee4c1f042ffdbc4f77e755c757920a8
 
 == Installation
 
 Add dm-devise and dm gems to your Gemfile. The following gems are required:
 
-  gem 'dm-core',           '~> 1.0.0'
-  gem 'dm-sqlite-adapter', '~> 1.0.0' # or your preferred adapter
-  gem 'dm-serializer',     '~> 1.0.0'
-  gem 'dm-timestamps',     '~> 1.0.0'
+  gem 'dm-core',           '~> 1.0.2'
+  gem 'dm-sqlite-adapter', '~> 1.0.2' # or your preferred adapter
+  gem 'dm-serializer',     '~> 1.0.2'
+  gem 'dm-timestamps',     '~> 1.0.2'
   gem 'dm-rails',          '~> 1.0.3'
-  gem 'dm-validations',    '~> 1.0.0' # Do not include if using data_mapper_active_model
+  gem 'dm-validations',    '~> 1.0.2' # Do not include if using data_mapper_active_model
   gem 'dm-devise',         '~> 1.1.0'
 
 If you're using data_mapper_active_model do not include dm-validations in your
