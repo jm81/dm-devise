@@ -22,7 +22,7 @@ README http://github.com/plataformatec/devise/blob/master/README.rdoc
 
 Last tested against devise release: v1.1.1
 
-Last tested against devise master: 2010-08-14, commit 0f0eb4e8cee4c1f042ffdbc4f77e755c757920a8
+Last tested against devise master: 2010-09-15, commit 7b069e641bcd105562eea78e2a435bfc279cfb7e
 
 == Installation
 
