@@ -62,6 +62,7 @@ begin
     gem.add_dependency 'devise',         '~> 1.1.0'
     gem.add_dependency 'warden',         '~> 0.10.7'
     gem.add_dependency 'bcrypt-ruby',    '~> 2.1.2'
+    gem.add_dependency 'sugar-high',     '~> 0.2.10'
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
   Jeweler::GemcutterTasks.new

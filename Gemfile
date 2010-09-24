@@ -14,6 +14,7 @@ gem 'dm-sqlite-adapter', '~> 1.0.2'
 gem 'dm-serializer',     '~> 1.0.2'
 gem 'dm-timestamps',     '~> 1.0.2'
 gem 'dm-rails',          '~> 1.0.3'
+gem 'sugar-high',        '~> 0.2.10'
 
 group :data_mapper do
   gem 'dm-validations',    '~> 1.0.2'
