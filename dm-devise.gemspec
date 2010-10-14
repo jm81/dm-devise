@@ -81,7 +81,6 @@ Gem::Specification.new do |s|
       s.add_runtime_dependency(%q<dm-timestamps>, ["~> 1.0.0"])
       s.add_runtime_dependency(%q<dm-rails>, [">= 1.0.3"])
       s.add_runtime_dependency(%q<devise>, ["~> 1.1.0"])
-      s.add_runtime_dependency(%q<warden>, ["~> 0.10.7"])
       s.add_runtime_dependency(%q<bcrypt-ruby>, ["~> 2.1.2"])
     else
       s.add_dependency(%q<dm-core>, ["~> 1.0.0"])
@@ -91,7 +90,6 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<dm-timestamps>, ["~> 1.0.0"])
       s.add_dependency(%q<dm-rails>, [">= 1.0.3"])
       s.add_dependency(%q<devise>, ["~> 1.1.0"])
-      s.add_dependency(%q<warden>, ["~> 0.10.7"])
       s.add_dependency(%q<bcrypt-ruby>, ["~> 2.1.2"])
     end
   else
@@ -102,7 +100,6 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<dm-timestamps>, ["~> 1.0.0"])
     s.add_dependency(%q<dm-rails>, [">= 1.0.3"])
     s.add_dependency(%q<devise>, ["~> 1.1.0"])
-    s.add_dependency(%q<warden>, ["~> 0.10.7"])
     s.add_dependency(%q<bcrypt-ruby>, ["~> 2.1.2"])
   end
 end
