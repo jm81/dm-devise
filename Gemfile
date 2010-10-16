@@ -2,11 +2,11 @@ source :rubygems
 
 gemspec
 
-gem "rails", '3.0.0'
+gem 'rails', '3.0.1'
 
-gem "webrat", "0.7.1"
-gem "mocha", :require => false
-gem "oauth2"
+gem 'webrat', '0.7.1'
+gem 'mocha', :require => false
+gem 'oauth2'
 
 gem 'sugar-high',        '~> 0.2.10'
 gem 'dm-sqlite-adapter', '~> 1.0.2'

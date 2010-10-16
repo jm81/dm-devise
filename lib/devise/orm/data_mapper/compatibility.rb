@@ -31,16 +31,6 @@ module Devise
               METHOD
             end
           end
-
-          # Add ActiveRecord like finder
-          def find(*args)
-            case args.first
-            when :first, :all
-              send(args.shift, *args)
-            else
-              get(*args)
-            end
-          end
         end
 
         def changed?

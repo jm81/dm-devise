@@ -3,6 +3,7 @@ require 'devise/orm/data_mapper/compatibility'
 require 'devise/orm/data_mapper/schema'
 require 'devise/orm/data_mapper/date_time'
 require 'devise/orm/data_mapper/dm-validations'
+require 'orm_adapter/adapters/data_mapper'
 
 module Devise
   module Orm
