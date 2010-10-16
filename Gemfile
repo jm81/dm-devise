@@ -4,7 +4,7 @@ gemspec
 
 gem "rails", '3.0.0'
 
-gem "webrat", "0.7.0"
+gem "webrat", "0.7.1"
 gem "mocha", :require => false
 gem "oauth2"
 

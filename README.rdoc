@@ -22,7 +22,7 @@ README http://github.com/plataformatec/devise/blob/master/README.rdoc
 
 Last tested against devise release: v1.1.1
 
-Last tested against devise master: 2010-09-25, commit 2aa1d2f3b76ce87c087a010c02d78a1156ac8669
+Last tested against devise master: 2010-10-10, commit b409184a988eba17784e7dab482db708ad86a87d
 
 == Installation
 
@@ -34,7 +34,7 @@ Add dm-devise and dm gems to your Gemfile. The following gems are required:
   gem 'dm-timestamps',     '~> 1.0.2'
   gem 'dm-rails',          '~> 1.0.3'
   gem 'dm-validations',    '~> 1.0.2' # Do not include if using data_mapper_active_model
-  gem 'dm-devise',         '~> 1.1.0'
+  gem 'dm-devise',         '~> 1.1.4'
 
 If you're using data_mapper_active_model do not include dm-validations in your
 Gemfile.
