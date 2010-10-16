@@ -25,6 +25,10 @@ module Devise
             end
           end
 
+          if String == type && !options[:length]
+            options[:length] = 255
+          end
+
           options.delete(:default) if options[:default].nil?
           property name, type, options
         end
