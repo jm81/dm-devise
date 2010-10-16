@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Jared Morgan"]
-  s.date = %q{2010-09-08}
+  s.date = %q{2010-10-16}
   s.description = %q{dm-devise adds DataMapper support to devise (http://github.com/plataformatec/devise) for authentication support for Rails}
   s.email = %q{jmorgan@morgancreative.net}
   s.extra_rdoc_files = [
@@ -76,31 +76,31 @@ Gem::Specification.new do |s|
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<dm-core>, ["~> 1.0.0"])
       s.add_runtime_dependency(%q<dm-migrations>, ["~> 1.0.0"])
-      s.add_runtime_dependency(%q<dm-validations>, ["~> 1.0.0"])
       s.add_runtime_dependency(%q<dm-serializer>, ["~> 1.0.0"])
       s.add_runtime_dependency(%q<dm-timestamps>, ["~> 1.0.0"])
       s.add_runtime_dependency(%q<dm-rails>, [">= 1.0.3"])
       s.add_runtime_dependency(%q<devise>, ["~> 1.1.0"])
       s.add_runtime_dependency(%q<bcrypt-ruby>, ["~> 2.1.2"])
+      s.add_runtime_dependency(%q<sugar-high>, ["~> 0.2.10"])
     else
       s.add_dependency(%q<dm-core>, ["~> 1.0.0"])
       s.add_dependency(%q<dm-migrations>, ["~> 1.0.0"])
-      s.add_dependency(%q<dm-validations>, ["~> 1.0.0"])
       s.add_dependency(%q<dm-serializer>, ["~> 1.0.0"])
       s.add_dependency(%q<dm-timestamps>, ["~> 1.0.0"])
       s.add_dependency(%q<dm-rails>, [">= 1.0.3"])
       s.add_dependency(%q<devise>, ["~> 1.1.0"])
       s.add_dependency(%q<bcrypt-ruby>, ["~> 2.1.2"])
+      s.add_dependency(%q<sugar-high>, ["~> 0.2.10"])
     end
   else
     s.add_dependency(%q<dm-core>, ["~> 1.0.0"])
     s.add_dependency(%q<dm-migrations>, ["~> 1.0.0"])
-    s.add_dependency(%q<dm-validations>, ["~> 1.0.0"])
     s.add_dependency(%q<dm-serializer>, ["~> 1.0.0"])
     s.add_dependency(%q<dm-timestamps>, ["~> 1.0.0"])
     s.add_dependency(%q<dm-rails>, [">= 1.0.3"])
     s.add_dependency(%q<devise>, ["~> 1.1.0"])
     s.add_dependency(%q<bcrypt-ruby>, ["~> 2.1.2"])
+    s.add_dependency(%q<sugar-high>, ["~> 0.2.10"])
   end
 end
 
