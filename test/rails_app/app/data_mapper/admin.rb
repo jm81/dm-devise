@@ -8,4 +8,6 @@ class Admin
 
   include SharedAdmin
   include Shim
+
+  property :remember_token, String
 end
