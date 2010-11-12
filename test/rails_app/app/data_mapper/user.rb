@@ -1,5 +1,3 @@
-require 'shared_user'
-
 class User
   include DataMapper::Resource
 
@@ -8,7 +6,10 @@ class User
   property :facebook_token, String
   timestamps :at
 
-  include SharedUser
+  devise :database_authenticatable, :confirmable, :lockable, :recoverable,
+         :registerable, :rememberable, :timeoutable, :token_authenticatable,
+         :trackable, :validatable
+
   include Shim
 
   before :valid?, :update_password_confirmation

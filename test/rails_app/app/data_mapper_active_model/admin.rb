@@ -1,4 +1,3 @@
-require 'shared_admin'
 require File.join(File.dirname(__FILE__), '../data_mapper/shim.rb')
 
 class Admin
@@ -7,6 +6,7 @@ class Admin
   property :id,   Serial
   property :username, String
 
-  include SharedAdmin
   include Shim
+
+  devise :database_authenticatable, :timeoutable, :registerable, :recoverable, :lockable, :unlock_strategy => :time
 end

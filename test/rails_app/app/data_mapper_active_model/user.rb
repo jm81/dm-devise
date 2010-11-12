@@ -1,4 +1,3 @@
-require 'shared_user'
 require File.join(File.dirname(__FILE__), '../data_mapper/shim.rb')
 
 class User
@@ -9,6 +8,9 @@ class User
   property :facebook_token, String
   timestamps :at
 
-  include SharedUser
+  devise :database_authenticatable, :confirmable, :lockable, :recoverable,
+         :registerable, :rememberable, :timeoutable, :token_authenticatable,
+         :trackable, :validatable
+
   include Shim
 end
