@@ -50,6 +50,6 @@ DataMapper::Validate::ValidationErrors.default_error_messages = {
   :even => 'must be even',
   :primitive => '%s must be of type %s',
   :not_found => '%s not found',
-  :already_confirmed => '%s was already confirmed',
+  :already_confirmed => '%s was already confirmed, please try signing in',
   :not_locked => '%s was not locked'
 }
