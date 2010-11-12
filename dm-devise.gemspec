@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{dm-devise}
-  s.version = "1.2.0.pre"
+  s.version = "1.1.5"
 
-  s.required_rubygems_version = Gem::Requirement.new("> 1.3.1") if s.respond_to? :required_rubygems_version=
+  s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Jared Morgan"]
-  s.date = %q{2010-10-16}
+  s.date = %q{2010-11-12}
   s.description = %q{dm-devise adds DataMapper support to devise (http://github.com/plataformatec/devise) for authentication support for Rails}
   s.email = %q{jmorgan@morgancreative.net}
   s.extra_rdoc_files = [
@@ -55,6 +55,7 @@ Gem::Specification.new do |s|
   s.summary = %q{Support for using DataMapper ORM with devise}
   s.test_files = [
     "test/test_helper.rb",
+     "test/data_mapper/schema_test.rb",
      "test/data_mapper/compatibility_test.rb",
      "test/rails_app/config/environment.rb",
      "test/rails_app/config/application.rb",
@@ -74,29 +75,32 @@ Gem::Specification.new do |s|
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
-      s.add_runtime_dependency(%q<dm-core>, ["~> 1.0.2"])
-      s.add_runtime_dependency(%q<dm-migrations>, ["~> 1.0.2"])
-      s.add_runtime_dependency(%q<dm-serializer>, ["~> 1.0.2"])
-      s.add_runtime_dependency(%q<dm-timestamps>, ["~> 1.0.2"])
+      s.add_runtime_dependency(%q<dm-core>, ["~> 1.0.0"])
+      s.add_runtime_dependency(%q<dm-migrations>, ["~> 1.0.0"])
+      s.add_runtime_dependency(%q<dm-serializer>, ["~> 1.0.0"])
+      s.add_runtime_dependency(%q<dm-timestamps>, ["~> 1.0.0"])
       s.add_runtime_dependency(%q<dm-rails>, [">= 1.0.3"])
-      s.add_runtime_dependency(%q<devise>, ["~> 1.2.rc"])
+      s.add_runtime_dependency(%q<devise>, ["~> 1.1.0"])
+      s.add_runtime_dependency(%q<bcrypt-ruby>, ["~> 2.1.2"])
       s.add_runtime_dependency(%q<sugar-high>, ["~> 0.2.10"])
     else
-      s.add_dependency(%q<dm-core>, ["~> 1.0.2"])
-      s.add_dependency(%q<dm-migrations>, ["~> 1.0.2"])
-      s.add_dependency(%q<dm-serializer>, ["~> 1.0.2"])
-      s.add_dependency(%q<dm-timestamps>, ["~> 1.0.2"])
+      s.add_dependency(%q<dm-core>, ["~> 1.0.0"])
+      s.add_dependency(%q<dm-migrations>, ["~> 1.0.0"])
+      s.add_dependency(%q<dm-serializer>, ["~> 1.0.0"])
+      s.add_dependency(%q<dm-timestamps>, ["~> 1.0.0"])
       s.add_dependency(%q<dm-rails>, [">= 1.0.3"])
-      s.add_dependency(%q<devise>, ["~> 1.2.rc"])
+      s.add_dependency(%q<devise>, ["~> 1.1.0"])
+      s.add_dependency(%q<bcrypt-ruby>, ["~> 2.1.2"])
       s.add_dependency(%q<sugar-high>, ["~> 0.2.10"])
     end
   else
-    s.add_dependency(%q<dm-core>, ["~> 1.0.2"])
-    s.add_dependency(%q<dm-migrations>, ["~> 1.0.2"])
-    s.add_dependency(%q<dm-serializer>, ["~> 1.0.2"])
-    s.add_dependency(%q<dm-timestamps>, ["~> 1.0.2"])
+    s.add_dependency(%q<dm-core>, ["~> 1.0.0"])
+    s.add_dependency(%q<dm-migrations>, ["~> 1.0.0"])
+    s.add_dependency(%q<dm-serializer>, ["~> 1.0.0"])
+    s.add_dependency(%q<dm-timestamps>, ["~> 1.0.0"])
     s.add_dependency(%q<dm-rails>, [">= 1.0.3"])
-    s.add_dependency(%q<devise>, ["~> 1.2.rc"])
+    s.add_dependency(%q<devise>, ["~> 1.1.0"])
+    s.add_dependency(%q<bcrypt-ruby>, ["~> 2.1.2"])
     s.add_dependency(%q<sugar-high>, ["~> 0.2.10"])
   end
 end
