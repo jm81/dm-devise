@@ -59,6 +59,19 @@ Read the README for devise at http://github.com/plataformatec/devise/blob/master
 * Example app
 * Rails templates
 
+== Testing
+
+The dm-devise test rake task runs all of devise's tests using the data_mapper
+and data_mapper_active_model ORM setups. In order to run tests, you'll need a
+local copy of devise (a gem is fine as long as you specify the path). By default,
+dm-devise looks for devise in [path-to-dm-devise]/../devise. You can override
+this by setting a DEVISE_PATH env variable. For example:
+
+  rake test DEVISE_PATH=/path/to/devise
+
+Tests of the master branch should be run against devise master. Tests of the
+1.1 branch should be run against the devise 1.1 branch (or a 1.1.x gem).
+
 == Note on Patches/Pull Requests
  
 * Fork the project.
