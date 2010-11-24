@@ -48,3 +48,20 @@ class TrackableHooksTest < ActionController::IntegrationTest
   end
 end
 
+class DatabaseAuthenticatableTest < ActiveSupport::TestCase
+  undef test_should_downcase_case_insensitive_keys_when_saving
+
+  # save! is used in devise version of this test. In AR, save! runs callbacks
+  # (and raises an error if any return false, which I assume is why its being
+  # used). In DM, save! skips callbacks. Therefore, override and change #save!
+  # to #save.
+  test 'should downcase case insensitive keys when saving' do
+    # case_insensitive_keys is set to :email by default.
+    email = 'Foo@Bar.com'
+    user = new_user(:email => email)
+
+    assert_equal email, user.email
+    user.save
+    assert_equal email.downcase, user.email
+  end
+end
