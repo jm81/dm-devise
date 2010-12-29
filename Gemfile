@@ -2,9 +2,9 @@ source :rubygems
 
 gemspec
 
-gem "rails", '3.0.0'
+gem "rails", '3.0.3'
 
-gem "webrat", "0.7.0"
+gem "webrat", "0.7.2"
 gem "mocha", :require => false
 gem "oauth2"
 
