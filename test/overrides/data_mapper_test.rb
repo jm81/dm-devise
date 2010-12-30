@@ -65,3 +65,15 @@ class DatabaseAuthenticatableTest < ActiveSupport::TestCase
     assert_equal email.downcase, user.email
   end
 end
+
+class AuthenticationRedirectTest < ActionController::IntegrationTest
+  undef test_sign_in_with_xml_format_returns_xml_response
+
+  # It appears DM's to_xml does not add the xml header
+  test 'sign in with xml format returns xml response' do
+    create_user
+    post user_session_path(:format => 'xml', :user => {:email => "user@test.com", :password => '123456'})
+    assert_response :success
+    assert_match /\A<user><id/, response.body
+  end
+end
