@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    dm-devise (1.2.0.pre)
+    dm-devise (1.2.0.beta)
       devise (~> 1.2.rc)
       dm-core (~> 1.0.2)
       dm-migrations (~> 1.0.2)
