@@ -1,5 +1,5 @@
 module DataMapper
   module Devise
-    VERSION = '1.1.6'.freeze
+    VERSION = '1.1.8'.freeze
   end
 end
