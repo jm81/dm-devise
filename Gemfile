@@ -2,15 +2,18 @@ source :rubygems
 
 gemspec
 
-gem 'rails', '3.0.3'
+gem 'oa-oauth', :require => 'omniauth/oauth'
+gem 'oa-openid', :require => 'omniauth/openid'
 
-gem 'webrat', '0.7.1'
-gem 'mocha', :require => false
-gem "oa-oauth", :require => "omniauth/oauth"
-gem "oa-openid", :require => "omniauth/openid"
+group :test do
+  gem 'webrat', '0.7.2', :require => false
+  gem 'mocha', :require => false
+end
 
-gem 'sugar-high',        '~> 0.2.10'
-gem 'dm-sqlite-adapter', '~> 1.0.2'
+group :development do
+  gem 'rails', '~> 3.0.3'
+  gem 'dm-sqlite-adapter', '~> 1.0.2'
+end
 
 group :data_mapper do
   gem 'dm-validations',    '~> 1.0.0'
