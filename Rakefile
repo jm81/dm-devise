@@ -49,28 +49,3 @@ Rake::RDocTask.new(:rdoc) do |rdoc|
   rdoc.rdoc_files.include('README.rdoc')
   rdoc.rdoc_files.include('lib/**/*.rb')
 end
-
-begin
-  require 'jeweler'
-  Jeweler::Tasks.new do |gem|
-    gem.name = "dm-devise"
-    gem.version = DataMapper::Devise::VERSION.dup
-    gem.summary = %Q{Support for using DataMapper ORM with devise}
-    gem.description = %Q{dm-devise adds DataMapper support to devise (http://github.com/plataformatec/devise) for authentication support for Rails}
-    gem.email = "jmorgan@morgancreative.net"
-    gem.homepage = "http://github.com/jm81/dm-devise"
-    gem.authors = ["Jared Morgan"]
-    gem.add_dependency 'dm-core',        '~> 1.0.0'
-    gem.add_dependency 'dm-migrations',  '~> 1.0.0'
-    gem.add_dependency 'dm-serializer',  '~> 1.0.0'
-    gem.add_dependency 'dm-timestamps',  '~> 1.0.0'
-    gem.add_dependency 'dm-rails',       '>= 1.0.3'
-    gem.add_dependency 'devise',         '~> 1.1.0'
-    gem.add_dependency 'bcrypt-ruby',    '~> 2.1.2'
-    gem.add_dependency 'sugar-high',     '~> 0.2.10'
-    # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
-  end
-  Jeweler::GemcutterTasks.new
-rescue LoadError
-  puts "Jeweler (or a dependency) not available. Install it with: gem install jeweler"
-end
