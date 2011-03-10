@@ -15,6 +15,7 @@ module Devise
         # Tell how to apply schema methods. This automatically maps :limit to
         # :length and :null to :required.
         def apply_devise_schema(name, type, options={})
+          return false if properties[name]
           SCHEMA_OPTIONS.each do |old_key, new_key|
             next unless options.key?(old_key)
             if :null == old_key
