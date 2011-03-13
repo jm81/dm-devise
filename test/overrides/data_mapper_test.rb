@@ -74,6 +74,6 @@ class AuthenticationRedirectTest < ActionController::IntegrationTest
     create_user
     post user_session_path(:format => 'xml', :user => {:email => "user@test.com", :password => '123456'})
     assert_response :success
-    assert_match /\A<user><id/, response.body
+    assert_match /\A<user>\s*<id/, response.body
   end
 end

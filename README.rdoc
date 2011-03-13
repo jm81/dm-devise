@@ -27,16 +27,19 @@ Last tested against devise release 1.2.rc2
 
 Add dm-devise and dm gems to your Gemfile. The following gems are required:
 
-  gem 'dm-core',           '~> 1.0.2'
-  gem 'dm-sqlite-adapter', '~> 1.0.2' # or your preferred adapter
-  gem 'dm-serializer',     '~> 1.0.2'
-  gem 'dm-timestamps',     '~> 1.0.2'
-  gem 'dm-rails',          '~> 1.0.3'
-  gem 'dm-validations',    '~> 1.0.2' # Do not include if using data_mapper_active_model
-  gem 'dm-devise',         '~> 1.1.4'
+  gem 'dm-core',           '~> 1.1.0.rc3'
+  gem 'dm-sqlite-adapter', '~> 1.1.0.rc3' # or your preferred adapter
+  gem 'dm-serializer',     '~> 1.1.0.rc3'
+  gem 'dm-timestamps',     '~> 1.1.0.rc3'
+  gem 'dm-rails',          '~> 1.1.0.rc3'
+  gem 'dm-validations',    '~> 1.1.0.rc3' # Do not include if using data_mapper_active_model
+  gem 'dm-devise',         '~> 1.2.0.rc'
 
 If you're using data_mapper_active_model do not include dm-validations in your
 Gemfile.
+
+dm-devise works with versions of DataMapper gems >= 1.0.2 on the 1.0 branch
+and >= 1.1.0.rc3 on the 1.1 branch.
 
 Run the generator:
 
