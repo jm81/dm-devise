@@ -1,5 +1,5 @@
 module DataMapper
   module Devise
-    VERSION = '1.2.0.beta'.freeze
+    VERSION = '1.2.0.rc'.freeze
   end
 end
