@@ -4,6 +4,7 @@ DEVISE_PATH = ENV['DEVISE_PATH']
 
 puts "\n==> Devise.orm = #{DEVISE_ORM.inspect}"
 
+require 'dm-migrations'
 require "rails_app/config/environment"
 require "rails/test_help"
 require "orm/#{DEVISE_ORM}"
