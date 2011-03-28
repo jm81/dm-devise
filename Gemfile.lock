@@ -46,7 +46,7 @@ GEM
     builder (2.1.2)
     data_objects (0.10.3)
       addressable (~> 2.1)
-    devise (1.1.7)
+    devise (1.1.9)
       bcrypt-ruby (~> 2.1.2)
       warden (~> 1.0.2)
     dm-active_model (1.0.3)
