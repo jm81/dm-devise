@@ -42,5 +42,14 @@ if DEVISE_ORM == :data_mapper
       end
     end
   end
-  
+
+  class ActiveRecordTest < ActiveSupport::TestCase
+    undef test_validations_options_are_not_applied_to_late
+
+    test 'validations options are not applied to late' do
+      validators = WithValidation.validators.contexts[:default].select{|validator| validator.field_name == :password}
+      length = validators.find { |v| v.class.name == 'DataMapper::Validations::LengthValidator' }
+      assert_equal (2..6), length.options[:within]
+    end
+  end
 end
