@@ -53,3 +53,15 @@ DataMapper::Validate::ValidationErrors.default_error_messages = {
   :already_confirmed => '%s was already confirmed, please try signing in',
   :not_locked => '%s was not locked'
 }
+
+module DataMapper
+  module Validations
+    class ValidationErrors
+      # Some devise controller actions expect resource#errors to respond to
+      # #to_xml. Otherwise, we get a Missing template error
+      def to_xml(options = {})
+        @errors.to_hash.to_xml(options.merge(:root => 'errors'))
+      end
+    end
+  end
+end
