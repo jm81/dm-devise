@@ -18,6 +18,10 @@ module Devise
             wrap_hook(:before, :save, *args)
           end
 
+          def before_validation(*args)
+            wrap_hook(:before, :valid?, *args)
+          end
+
           def wrap_hook(action, method, *args)
             options = args.extract_options!
 
