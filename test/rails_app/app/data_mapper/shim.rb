@@ -20,6 +20,10 @@ module Shim
   end
 
   def to_xml(*args)
-    "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" + super
+    "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" + super + "\n"
+  end
+
+  def to_json(*args)
+    {self.model.name.downcase => JSON.parse(super)}.to_json
   end
 end
