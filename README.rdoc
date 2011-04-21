@@ -20,8 +20,8 @@ earlier versions, but it's not been tested (if you try, please let Jared Morgan
 This README only covers dm-devise specifics. Make sure to read the devise
 README http://github.com/plataformatec/devise/blob/master/README.rdoc
 
-Last tested against devise master: 2011-04-16, commit 460beae671c654bdb83ebbc4c4ebfa613aee8384
-Last tested against devise release 1.3.0
+Last tested against devise master: 2011-04-21, commit 64cf8a45347137053b6c91bf85a3542c26e94771
+Last tested against devise release 1.3.3
 
 == Installation
 
