@@ -26,20 +26,4 @@ if DEVISE_ORM == :data_mapper
     end
 
   end
-
-  class AuthenticationOthersTest < ActionController::IntegrationTest
-
-    undef test_registration_in_xml_format_works_when_recognizing_path
-
-    # DM's validates_confirmation_of requires the confirmation field to be present,
-    # while ActiveModel by default skips the confirmation test if the confirmation
-    # value is nil. This test takes advantage of AM's behavior, so just add the
-    # :password_confirmation value.
-    test 'registration in xml format works when recognizing path' do
-      assert_nothing_raised do
-        # post user_registration_path(:format => 'xml', :user => {:email => "test@example.com", :password => "invalid"} )
-        post user_registration_path(:format => 'xml', :user => {:email => "test@example.com", :password => "invalid", :password_confirmation => "invalid"} )
-      end
-    end
-  end
 end
