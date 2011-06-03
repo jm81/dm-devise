@@ -52,13 +52,17 @@ module Devise
         def update_attribute(name, value)
           update(name => value)
         end
-        
+
         def update_attributes(*args)
           update(*args)
         end
 
         def invalid?
           !valid?
+        end
+
+        def email_changed?
+          attribute_dirty?(:email)
         end
       end
     end

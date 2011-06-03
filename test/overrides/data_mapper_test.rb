@@ -65,3 +65,46 @@ class DatabaseAuthenticatableTest < ActiveSupport::TestCase
     assert_equal email.downcase, user.email
   end
 end
+
+class ValidatableTest < ActiveSupport::TestCase
+  # user.save! is failing in these tests, since validation are running anyway.
+  # See https://github.com/datamapper/dm-validations/pull/13.
+
+  undef :"test_should_require_uniqueness_of_email_if_email_has_changed,_allowing_blank"
+
+  test 'should require uniqueness of email if email has changed, allowing blank' do
+    existing_user = create_user
+
+    user = new_user(:email => '')
+    assert user.invalid?
+    assert_no_match(/taken/, user.errors[:email].join)
+
+    user.email = existing_user.email
+    assert user.invalid?
+    assert_match(/taken/, user.errors[:email].join)
+
+    pending do
+      user.save(:validate => false)
+      assert user.valid?
+    end
+  end
+
+  undef :"test_should_require_correct_email_format_if_email_has_changed,_allowing_blank"
+
+  test 'should require correct email format if email has changed, allowing blank' do
+    user = new_user(:email => '')
+    assert user.invalid?
+    assert_not_equal 'is invalid', user.errors[:email].join
+
+    %w(invalid_email_format 123 $$$ \(\) ).each do |email|
+      user.email = email
+      assert user.invalid?, 'should be invalid with email ' << email
+      assert_equal 'is invalid', user.errors[:email].join
+    end
+
+    pending do
+      user.save(:validate => false)
+      assert user.valid?
+    end
+  end
+end
