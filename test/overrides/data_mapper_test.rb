@@ -64,6 +64,18 @@ class DatabaseAuthenticatableTest < ActiveSupport::TestCase
     user.save
     assert_equal email.downcase, user.email
   end
+
+  undef test_should_remove_whitespace_from_strip_whitespace_keys_when_saving
+
+  test 'should remove whitespace from strip whitespace keys when saving' do
+    # strip_whitespace_keys is set to :email by default.
+    email = ' foo@bar.com '
+    user = new_user(:email => email)
+
+    assert_equal email, user.email
+    user.save
+    assert_equal email.strip, user.email
+  end
 end
 
 class ValidatableTest < ActiveSupport::TestCase
