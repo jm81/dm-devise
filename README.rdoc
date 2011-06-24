@@ -13,15 +13,15 @@ library you wish to use for validations:
   The advantage to this is ActiveModel's I18n support for error messages, and
   it uses the same validations lib as devise does by default.
 
-dm-devise is intended for use with Rails 3 and devise 1.1. It may work with
+dm-devise is intended for use with Rails 3 and devise >= 1.1. It may work with
 earlier versions, but it's not been tested (if you try, please let Jared Morgan
 (http://github.com/jm81) know how it goes.)
 
 This README only covers dm-devise specifics. Make sure to read the devise
 README http://github.com/plataformatec/devise/blob/master/README.rdoc
 
-Last tested against devise master: 2011-05-28, commit 97659a1193aca1e8d0136e52d036b14473f6dd9b
-Last tested against devise release 1.3.4
+Last tested against devise master: 2011-06-23, commit dba8f91f99dce0e102ad2e6aa78b142a92833bc3
+Last tested against devise release 1.4.0
 
 == Installation
 
@@ -33,7 +33,7 @@ Add dm-devise and dm gems to your Gemfile. The following gems are required:
   gem 'dm-timestamps',     '~> 1.1.0'
   gem 'dm-rails',          '~> 1.1.0'
   gem 'dm-validations',    '~> 1.1.0' # Do not include if using data_mapper_active_model
-  gem 'dm-devise',         '~> 1.3.1'
+  gem 'dm-devise',         '~> 1.4.0'
 
 If you're using data_mapper_active_model do not include dm-validations in your
 Gemfile.
