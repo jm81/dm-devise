@@ -121,6 +121,28 @@ class ValidatableTest < ActiveSupport::TestCase
   end
 end
 
+class SerializableTest < ActiveSupport::TestCase
+  # AR's #to_xml replaces underscore with dash. DM does not.
+  undef test_should_not_include_unsafe_keys_on_XML
+  undef test_should_not_include_unsafe_keys_on_XML_even_if_a_new_except_is_provided
+  undef test_should_include_unsafe_keys_on_XML_if_a_force_except_is_provided
+
+  test 'should not include unsafe keys on XML' do
+    assert_match /email/, @user.to_xml
+    assert_no_match /confirmation_token/, @user.to_xml
+  end
+
+  test 'should not include unsafe keys on XML even if a new except is provided' do
+    assert_no_match /email/, @user.to_xml(:except => :email)
+    assert_no_match /confirmation_token/, @user.to_xml(:except => :email)
+  end
+
+  test 'should include unsafe keys on XML if a force_except is provided' do
+    assert_no_match /email/, @user.to_xml(:force_except => :email)
+    assert_match /confirmation_token/, @user.to_xml(:force_except => :email)
+  end
+end
+
 class DeviseHelperTest < ActionController::IntegrationTest
   # Ensure test finds the translation of the model name.
   setup do

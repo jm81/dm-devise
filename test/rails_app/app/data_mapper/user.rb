@@ -6,6 +6,7 @@ class User
   property :id, Serial
   property :username, String
   property :facebook_token, String
+  property :confirmation_token, String, :writer => :private
   timestamps :at
 
   include SharedUser
@@ -21,5 +22,5 @@ class User
     if self.password && self.password_confirmation.nil?
       self.password_confirmation = self.password
     end
-  end 
+  end
 end
