@@ -10,7 +10,7 @@ class ActiveSupport::TestCase
 end
 
 module DataMapper
-  module Validate
+  module Validations
     class ValidationErrors
 
       # ActiveModel prepends field names in +#full_messages+, and so the

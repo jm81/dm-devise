@@ -1,5 +1,5 @@
 module DataMapper
-  module Validate
+  module Validations
 
     # Monkey-patch ValidationErrors to support generation of error message from
     # a Symbol. This does not translate, consistent with normal DataMapper
@@ -16,13 +16,19 @@ module DataMapper
         end
         original_add(field_name, message) unless errors[field_name].include?(message)
       end
+
+      # Some devise controller actions expect resource#errors to respond to
+      # #to_xml. Otherwise, we get a Missing template error
+      def to_xml(options = {})
+        @errors.to_hash.to_xml(options.merge(:root => 'errors'))
+      end
     end
   end
 end
 
 # Default error messages consistent with ActiveModel messages and devise
 # expectations.
-DataMapper::Validate::ValidationErrors.default_error_messages = {
+DataMapper::Validations::ValidationErrors.default_error_messages = {
   :absent => '%s must be absent',
   :inclusion => '%s is not included in the list',
   :exclusion => '%s is reserved',
@@ -54,15 +60,3 @@ DataMapper::Validate::ValidationErrors.default_error_messages = {
   :not_locked => '%s was not locked',
   :expired => '%s has expired, please request a new one'
 }
-
-module DataMapper
-  module Validations
-    class ValidationErrors
-      # Some devise controller actions expect resource#errors to respond to
-      # #to_xml. Otherwise, we get a Missing template error
-      def to_xml(options = {})
-        @errors.to_hash.to_xml(options.merge(:root => 'errors'))
-      end
-    end
-  end
-end
