@@ -10,7 +10,7 @@ group :test do
   gem 'mocha', :require => false
 end
 
-DM_VERSION = '~> 1.1.0.rc3'
+DM_VERSION = '~> 1.1.0'
 
 group :development do
   gem 'rails', '~> 3.0.4'
