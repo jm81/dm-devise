@@ -11,8 +11,8 @@ rescue Bundler::BundlerError => e
 end
 require 'rake'
 require 'rake/testtask'
-require 'rake/rdoctask'
-require File.join(File.dirname(__FILE__), 'lib', 'dm-devise', 'version')
+require 'rdoc/task'
+require 'dm-devise/version'
 
 desc 'Default: run tests for all DataMapper ORM setups.'
 task :default => :pre_commit
