@@ -120,3 +120,13 @@ class ValidatableTest < ActiveSupport::TestCase
     end
   end
 end
+
+class DeviseHelperTest < ActionController::IntegrationTest
+  # Ensure test finds the translation of the model name.
+  setup do
+    I18n.backend.store_translations :fr,
+    {
+      :data_mapper => { :models => { :user => "utilisateur" } }
+    }
+  end
+end
