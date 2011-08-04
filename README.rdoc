@@ -23,7 +23,7 @@ Add dm-devise and dm gems to your Gemfile. The following gems are required:
   gem 'dm-timestamps',     '~> 1.1.0'
   gem 'dm-rails',          '~> 1.1.0'
   gem 'dm-validations',    '~> 1.1.0' # Do not include if using data_mapper_active_model
-  gem 'dm-devise',         '~> 1.4.0'
+  gem 'dm-devise',         '~> 1.5.0.beta'
 
 If you're using Active Model validations, do not include dm-validations in your
 Gemfile.
