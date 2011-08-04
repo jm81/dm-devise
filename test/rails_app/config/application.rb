@@ -6,7 +6,7 @@ require "action_mailer/railtie"
 require "active_resource/railtie"
 require "rails/test_unit/railtie"
 
-Bundler.require :default, DEVISE_ORM
+Bundler.require :default, VALIDATION_LIB
 
 begin
   require "#{DEVISE_ORM}/railtie"
@@ -21,7 +21,7 @@ module RailsApp
     config.root = APP_ROOT
     config.autoload_paths.reject!{ |p| p =~ /\/app\/(\w+)$/ && !%w(controllers helpers views).include?($1) }
     config.autoload_paths += [ File.expand_path("#{File.dirname(__FILE__)}/../app/#{DEVISE_ORM}") ]
-    
+
     # Configure generators values. Many other options are available, be sure to check the documentation.
     # config.generators do |g|
     #   g.orm             :active_record

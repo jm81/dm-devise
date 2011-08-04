@@ -5,12 +5,10 @@ require 'test_helper'
 # particularly important and getting DM to pass the original devise tests would
 # be difficult.
 #
-# This file contains tests shared by both data_mapper and
-# data_mapper_active_model ORM setups.
-# Tests specific to the data_mapper orm which uses dm-validations are in dm_validations_test.rb
-# Tests specific to the data_mapper_active_model orm which uses ActiveModel
-# validations would be in active_model_test.rb, but there aren't any (I would
-# be rather surprised if there ever were any).
+# This file contains tests that are overriden regardless of validation library.
+# Tests specific to dm-validations are in dm_validations_test.rb
+# Tests specific to ActiveModel validations would be in active_model_test.rb,
+# but there aren't any (I would be rather surprised if there ever were any).
 #
 # For each test, an explanation is given as to why I chose to override the test,
 # and the original assertion is commented above the DM-specific assertion.

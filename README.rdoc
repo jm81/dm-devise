@@ -1,17 +1,7 @@
 = dm-devise
 
 dm-devise lets you use devise (http://github.com/plataformatec/devise) with
-DataMapper. The gem gives you the options of 2 ORM setups depending on what
-library you wish to use for validations:
-
-:data_mapper::
-  Uses dm-validations. This involves a bit of monkey-patching, but you need to
-  use this if you want auto-validations in *any* of your models.
-:data_mapper_active_model::
-  Uses ActiveModel::Validations. Do not use if you require 'dm-validations'
-  anywhere in your app (or include it in your Gemfile). Things will break.
-  The advantage to this is ActiveModel's I18n support for error messages, and
-  it uses the same validations lib as devise does by default.
+DataMapper.
 
 dm-devise is intended for use with Rails 3 and devise >= 1.1. It may work with
 earlier versions, but it's not been tested (if you try, please let Jared Morgan
@@ -20,7 +10,7 @@ earlier versions, but it's not been tested (if you try, please let Jared Morgan
 This README only covers dm-devise specifics. Make sure to read the devise
 README http://github.com/plataformatec/devise/blob/master/README.rdoc
 
-Last tested against devise master: 2011-07-26, commit 33d7644b4fc13de68da8
+Last tested against devise master: 2011-08-02, commit 919404df53a0ee9a8c5be50a3d74acf10ac2e38c
 Last tested against devise release 1.4.2
 
 == Installation
@@ -35,7 +25,7 @@ Add dm-devise and dm gems to your Gemfile. The following gems are required:
   gem 'dm-validations',    '~> 1.1.0' # Do not include if using data_mapper_active_model
   gem 'dm-devise',         '~> 1.4.0'
 
-If you're using data_mapper_active_model do not include dm-validations in your
+If you're using Active Model validations, do not include dm-validations in your
 Gemfile.
 
 dm-devise works with versions of DataMapper gems >= 1.0.2 on the 1.0 branch
@@ -43,18 +33,53 @@ and >= 1.1.0.rc3 on the 1.1 branch.
 
 Run the generator:
 
-  rails generate devise:install
+  rails generate data_mapper:devise_install
 
 The generator will install an initializer which describes ALL Devise's
-configuration options and you MUST take a look at it. Make sure to specify
-either data_mapper (for using dm-validations) or data_mapper_active_model
-(ActiveModel::Validations) as the orm in the configuration file.
+configuration options and you MUST take a look at it. See Config section below
+for three config options that have particular importance to dm-devise.
 
-To add Devise to any of your models using the generator:
+Add Devise to any of your models using the generator:
 
   rails generate data_mapper:devise MODEL
 
 Read the README for devise at http://github.com/plataformatec/devise/blob/master/README.rdoc
+
+== Config Options
+
+See the generated initializer for all the config options, but dm-devise users
+should be particularly aware of these three:
+
+=== data_mapper_validation_lib
+
+dm-devise adds some compatibility methods for either dm-validations or
+Active Model validations. By default, it determines what to load based on
+which library is found (giving preference to dm-validations). You may
+explicitly set this to 'dm-validations' or 'active_model', or false to not
+load any of the validations compatibility code. Details of the options:
+
+dm-validations::
+  Uses dm-validations. This involves a bit of monkey-patching, but you need to
+  use this if you want auto-validations in *any* of your models.
+active_model::
+  Uses ActiveModel::Validations. Do not use if you require 'dm-validations'
+  anywhere in your app (or include it in your Gemfile). Things will break.
+  The advantage to this is Active Model's I18n support for error messages, and
+  it uses the same validations lib as devise does by default.
+
+=== apply_schema
+
+Tells if dm-devise should apply the devise database schema. You may want to
+set this to false if working with a legacy schema.
+
+=== data_mapper_validation_messages
+
+Messages to use as the default DataMapper validation error messages. The
+messages are updated from those included in dm-validations to be consistent
+with ActiveModel (i.e. with the Devise test expectations) and include
+additional messages that devise uses (:not_found, :already_confirmed,
+:not_locked, and :expired). If set to false, the messages are left as
+defined by the dm-validations gem.
 
 == TODO
 
@@ -64,15 +89,13 @@ Read the README for devise at http://github.com/plataformatec/devise/blob/master
 == Testing
 
 The dm-devise test rake task runs all of devise's tests using the data_mapper
-and data_mapper_active_model ORM setups. In order to run tests, you'll need a
+ORM with both dm-validations and active_model validations (you can specify one
+with rake test VALIDATION_LIB=lib_name). In order to run tests, you'll need a
 local copy of devise (a gem is fine as long as you specify the path). By default,
 dm-devise looks for devise in [path-to-dm-devise]/../devise. You can override
 this by setting a DEVISE_PATH env variable. For example:
 
   rake test DEVISE_PATH=/path/to/devise
-
-Tests of the master branch should be run against devise master. Tests of the
-1.1 branch should be run against the devise 1.1 branch (or a 1.1.x gem).
 
 == Note on Patches/Pull Requests
 
@@ -100,4 +123,4 @@ http://github.com/jm81/dm-devise/issues
 
 == Copyright
 
-Copyright (c) 2010 Jared Morgan. See LICENSE for details.
+Copyright (c) 2010-2011 Jared Morgan. See LICENSE for details.

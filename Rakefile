@@ -19,16 +19,17 @@ task :default => :pre_commit
 
 desc 'Run Devise tests for all DataMapper ORM setups.'
 task :pre_commit do
-  Dir[File.join(File.dirname(__FILE__), 'test', 'orm', '*.rb')].each do |file|
-    orm = File.basename(file).split(".").first
+  Dir[File.join(File.dirname(__FILE__), 'lib', 'devise', 'orm', 'data_mapper', 'validations', '*.rb')].each do |file|
+    validation_lib = File.basename(file).split(".").first
     ENV['DEVISE_PATH'] ||= File.expand_path('../devise')
-    system "rake test DEVISE_ORM=#{orm} DEVISE_PATH=#{ENV['DEVISE_PATH']}"
+    system "rake test DEVISE_ORM=data_mapper VALIDATION_LIB=#{validation_lib} DEVISE_PATH=#{ENV['DEVISE_PATH']}"
   end
 end
 
 desc 'Run Devise tests using DataMapper. Specify path to devise with DEVISE_PATH'
 Rake::TestTask.new(:test) do |test|
   ENV['DEVISE_ORM'] ||= 'data_mapper'
+  ENV['VALIDATION_LIB'] ||= 'dm-validations'
   ENV['DEVISE_PATH'] ||= File.expand_path('../devise')
   unless File.exist?(ENV['DEVISE_PATH'])
     puts "Specify the path to devise (e.g. rake DEVISE_PATH=/path/to/devise). Not found at #{ENV['DEVISE_PATH']}"

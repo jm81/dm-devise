@@ -46,4 +46,24 @@ module Devise
     :not_locked => '%s was not locked',
     :expired => '%s has expired, please request a new one'
   }
+
+  class << self
+    # Determine which validation library to use based on which validation
+    # library is loaded. May be set explicitly to one of:
+    #
+    # - 'dm-validations'
+    # - 'active_model'
+    # - Any other value (false) to not load any validation compatibility code.
+    mattr_writer :data_mapper_validation_lib
+    @@data_mapper_validation_lib = nil
+    def data_mapper_validation_lib
+      if !@@data_mapper_validation_lib.nil?
+        @@data_mapper_validation_lib.to_s
+      elsif defined? DataMapper::Validations
+        'dm-validations'
+      elsif defined? ActiveModel::Validations
+        'active_model'
+      end
+    end
+  end
 end

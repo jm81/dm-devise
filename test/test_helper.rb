@@ -1,8 +1,9 @@
-ENV["RAILS_ENV"] = "test"
-DEVISE_ORM = (ENV["DEVISE_ORM"] || :data_mapper).to_sym
+ENV['RAILS_ENV'] = 'test'
+DEVISE_ORM = (ENV['DEVISE_ORM'] || :data_mapper).to_sym
 DEVISE_PATH = ENV['DEVISE_PATH']
+VALIDATION_LIB = (ENV['VALIDATION_LIB'] || 'dm-validations')
 
-puts "\n==> Devise.orm = #{DEVISE_ORM.inspect}"
+puts "\n==> Devise.orm = #{DEVISE_ORM.inspect}, Devise.data_mapper_validation_lib = #{VALIDATION_LIB.inspect}"
 
 require 'dm-migrations'
 require "rails_app/config/environment"

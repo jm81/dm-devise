@@ -1,8 +1,7 @@
 require 'test_helper'
 
 # See data_mapper_test.rb in this folder for what this file is doing.
-if DEVISE_ORM == :data_mapper
-
+if VALIDATION_LIB == 'dm-validations'
   class ValidatableTest < ActiveSupport::TestCase
     undef test_should_require_a_password_with_minimum_of_6_characters
 

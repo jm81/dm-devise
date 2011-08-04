@@ -1,4 +1,4 @@
-if defined?(DataMapper::Validations)
+if Devise.data_mapper_validation_lib == 'dm-validations'
   module DataMapper
     module Validations
 

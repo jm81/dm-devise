@@ -23,6 +23,6 @@ group :development do
   gem 'dm-rails', DM_VERSION
 end
 
-group :data_mapper do
+group :'dm-validations' do
   gem 'dm-validations', DM_VERSION
 end
