@@ -33,4 +33,21 @@ if VALIDATION_LIB == 'dm-validations'
       assert_equal 'must be between 6 and 128 characters long', user.errors[:password].join
     end
   end
+
+  class ActiveRecordTest < ActiveSupport::TestCase
+    undef test_validations_options_are_not_applied_too_late
+
+    test 'validations options are not applied too late' do
+      validators = WithValidation.validators.contexts[:default].select{|validator| validator.field_name == :password}
+      length = validators.find { |v| v.class.name == 'DataMapper::Validations::LengthValidator' }
+      assert_equal (2..6), length.options[:within]
+    end
+
+    undef test_validations_are_applied_just_once
+
+    test 'validations are applied just once' do
+      validators = Several.validators.contexts[:default].select{|validator| validator.field_name == :password}
+      assert_equal 1, validators.select{ |v| v.kind_of?(DataMapper::Validations::LengthValidator) }.length
+    end
+  end
 end
