@@ -9,6 +9,13 @@ class User
   property :confirmation_token, String, :writer => :private
   timestamps :at
 
+  class << self
+    # attr_accessible is used by SharedUser. Instead of trying to make a
+    # a compatibility method, ignore it and set writer option to private on
+    # confirmation_token property.
+    def attr_accessible(*args); nil; end
+  end
+
   include SharedUser
   include Shim
 
