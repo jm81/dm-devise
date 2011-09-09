@@ -141,6 +141,17 @@ class SerializableTest < ActiveSupport::TestCase
   end
 end
 
+class AuthenticationOthersTest < ActionController::IntegrationTest
+  undef test_sign_in_stub_in_xml_format
+
+  # In this test, password is nil. AR's serializer adds an attribute specifying
+  # it is nil, while dm-serializer removes the property altogether.
+  test 'sign in stub in xml format' do
+    get new_user_session_path(:format => 'xml')
+    assert_equal "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<user>\n  <email></email>\n</user>\n", response.body
+  end
+end
+
 class DeviseHelperTest < ActionController::IntegrationTest
   # Ensure test finds the translation of the model name.
   setup do
