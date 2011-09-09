@@ -10,10 +10,10 @@ group :test do
   gem 'mocha', :require => false
 end
 
-DM_VERSION = '~> 1.1.0'
+DM_VERSION = '~> 1.2.0.rc1'
 
 group :development do
-  gem 'rails', '~> 3.0.4'
+  gem 'rails', '~> 3.1.0'
   gem 'dm-sqlite-adapter', DM_VERSION
 
   gem 'dm-core', DM_VERSION

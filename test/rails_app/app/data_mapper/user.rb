@@ -33,3 +33,10 @@ class User
     end
   end
 end
+
+# Define UserWithValidation here (instead of waiting for definition in
+# devise/test/models_test.rb) to ensure it is finalized. Otherwise,
+# DatabaseAuthenticatableTest 'should run validations even when current password is invalid or blank' fails.
+class UserWithValidation < User
+  validates_presence_of :username
+end

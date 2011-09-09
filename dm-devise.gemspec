@@ -16,10 +16,10 @@ Gem::Specification.new do |s|
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
 
-  s.add_dependency('dm-core', '>= 1.0.2', '< 1.2')
-  s.add_dependency('dm-migrations', '>= 1.0.2', '< 1.2')
-  s.add_dependency('dm-serializer', '>= 1.0.2', '< 1.2')
-  s.add_dependency('dm-timestamps', '>= 1.0.2', '< 1.2')
-  s.add_dependency('dm-rails', '>= 1.0.3', '< 1.2')
+  s.add_dependency('dm-core', '>= 1.0.2', '< 1.3')
+  s.add_dependency('dm-migrations', '>= 1.0.2', '< 1.3')
+  s.add_dependency('dm-serializer', '>= 1.0.2', '< 1.3')
+  s.add_dependency('dm-timestamps', '>= 1.0.2', '< 1.3')
+  s.add_dependency('dm-rails', '>= 1.0.3', '< 1.3')
   s.add_dependency('devise', '~> 1.3')
 end
