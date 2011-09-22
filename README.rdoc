@@ -10,26 +10,26 @@ earlier versions, but it's not been tested (if you try, please let Jared Morgan
 This README only covers dm-devise specifics. Make sure to read the devise
 README http://github.com/plataformatec/devise/blob/master/README.rdoc
 
-Last tested against devise master: 2011-09-09, commit ea7f15917f70b82d1ddc9559db968894f2c82cad
-Last tested against devise release 1.4.5
+Last tested against devise master: 2011-09-21, commit dd1d128333780840dbb76f75cc71993996ce57e9
+Last tested against devise release 1.4.6
 
 == Installation
 
 Add dm-devise and dm gems to your Gemfile. The following gems are required:
 
-  gem 'dm-core',           '~> 1.1.0'
-  gem 'dm-sqlite-adapter', '~> 1.1.0' # or your preferred adapter
-  gem 'dm-serializer',     '~> 1.1.0'
-  gem 'dm-timestamps',     '~> 1.1.0'
-  gem 'dm-rails',          '~> 1.1.0'
-  gem 'dm-validations',    '~> 1.1.0' # Do not include if using data_mapper_active_model
+  gem 'dm-core',           '~> 1.2.0.rc2'
+  gem 'dm-sqlite-adapter', '~> 1.2.0.rc2' # or your preferred adapter
+  gem 'dm-serializer',     '~> 1.2.0.rc2'
+  gem 'dm-timestamps',     '~> 1.2.0.rc2'
+  gem 'dm-rails',          '~> 1.2.0.rc2'
+  gem 'dm-validations',    '~> 1.2.0.rc2' # Do not include if using data_mapper_active_model
   gem 'dm-devise',         '~> 1.5.0'
 
 If you're using Active Model validations, do not include dm-validations in your
 Gemfile.
 
-dm-devise works with versions of DataMapper gems >= 1.0.2 on the 1.0 branch
-and >= 1.1.0.rc3 on the 1.1 branch.
+dm-devise works with versions of DataMapper gems >= 1.0.2 on the 1.0 branch,
+>= 1.1.0.rc3 on the 1.1 branch and 1.2.0 release candidates.
 
 Run the generator:
 
@@ -44,6 +44,14 @@ Add Devise to any of your models using the generator:
   rails generate data_mapper:devise MODEL
 
 Read the README for devise at http://github.com/plataformatec/devise/blob/master/README.rdoc
+
+== Using raise_on_save_failure
+
+The default controllers provided by devise will not work correctly if
+raise_on_save_failure is set to true for the devise model. You can customize
+the controllers (See the devise README for details), but I don't know what
+customizations in particular to recommend. See https://github.com/jm81/dm-devise/issues/14
+for discussion.
 
 == Config Options
 
