@@ -29,7 +29,7 @@ module Devise
           if String == type && !options[:length]
             options[:length] = 255
           end
-          
+
           options[:required] ||= false
 
           options.delete(:default) if options[:default].nil?
