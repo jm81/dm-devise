@@ -4,7 +4,7 @@ class DataMapperCompatibilityTest < ActiveSupport::TestCase
   def teardown
     User.raise_on_save_failure = false
   end
-  
+
   test 'respects raise_on_save_failure' do
     User.raise_on_save_failure = true
     user = new_user(:email => nil)
