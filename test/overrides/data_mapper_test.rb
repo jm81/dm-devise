@@ -74,6 +74,10 @@ class DatabaseAuthenticatableTest < ActiveSupport::TestCase
     user.save
     assert_equal email.strip, user.email
   end
+
+  # :as option is ActiveRecord-specific
+  undef :"test_should_update_password_with_valid_current_password_and_:as_option"
+  undef :"test_should_update_the_user_without_password_with_:as_option"
 end
 
 class ValidatableTest < ActiveSupport::TestCase

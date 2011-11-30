@@ -8,7 +8,6 @@ gem 'omniauth-oauth2', '~> 1.0.0'
 group :test do
   gem 'omniauth-facebook'
   gem 'omniauth-openid', '~> 1.0.1'
-  gem 'omniauth-google-oauth2', '~> 0.1.4'
   gem 'webrat', '0.7.2', :require => false
   gem 'mocha', :require => false
 end
