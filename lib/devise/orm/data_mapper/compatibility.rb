@@ -39,7 +39,7 @@ module Devise
 
         def save(options=nil)
           if options.is_a?(Hash) && options[:validate] == false
-            save!
+            _persist
           else
             super()
           end
