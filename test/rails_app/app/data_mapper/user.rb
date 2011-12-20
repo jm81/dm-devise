@@ -6,7 +6,41 @@ class User
   property :id, Serial
   property :username, String
   property :facebook_token, String
-  property :confirmation_token, String, :writer => :private
+
+  ## Database authenticatable
+  property :email,              String, :required => true, :default => ""
+  property :encrypted_password, String, :required => true, :default => "", :length => 255
+
+  ## Recoverable
+  property :reset_password_token,   String
+  property :reset_password_sent_at, DateTime
+
+  ## Rememberable
+  property :remember_created_at, DateTime
+
+  ## Trackable
+  property :sign_in_count,      Integer, :default => 0
+  property :current_sign_in_at, DateTime
+  property :last_sign_in_at,    DateTime
+  property :current_sign_in_ip, String
+  property :last_sign_in_ip,    String
+
+  ## Encryptable
+  # property :password_salt, String
+
+  ## Confirmable
+  property :confirmation_token,   String, :writer => :private
+  property :confirmed_at,         DateTime
+  property :confirmation_sent_at, DateTime
+  # property :unconfirmed_email,    String # Only if using reconfirmable
+
+  ## Lockable
+  property :failed_attempts, Integer, :default => 0 # Only if lock strategy is :failed_attempts
+  property :unlock_token,    String # Only if unlock strategy is :email or :both
+  property :locked_at,       DateTime
+
+  # Token authenticatable
+  property :authentication_token, String, :length => 255
   timestamps :at
 
   class << self
@@ -22,7 +56,7 @@ class User
   if VALIDATION_LIB == 'dm-validations'
     before :valid?, :update_password_confirmation
 
-    # DM's validates_confirmation_of requires the confirmation field to be present,
+    # DM's validates_confirmation_of requires the confirmation property to be present,
     # while ActiveModel by default skips the confirmation test if the confirmation
     # value is nil. This test takes advantage of AM's behavior, so just add the
     # :password_confirmation value.
