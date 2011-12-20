@@ -60,6 +60,10 @@ module Devise
         def email_changed?
           attribute_dirty?(:email)
         end
+
+        def email_was
+          original_attributes[:email]
+        end
       end
     end
   end
