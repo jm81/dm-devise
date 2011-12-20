@@ -6,16 +6,12 @@ module Devise
 
         module ClassMethods
           # Hooks for confirmable
-          def before_create(*args)
-            wrap_hook(:before, :create, *args)
-          end
-
-          def after_create(*args)
-            wrap_hook(:after, :create, *args)
-          end
-
-          def before_save(*args)
-            wrap_hook(:before, :save, *args)
+          [:before, :after].each do |action|
+            [:create, :update, :save].each do |method|
+              define_method(:"#{action}_#{method}") do |*args|
+                wrap_hook(action, method, *args)
+              end
+            end
           end
 
           def before_validation(*args)
@@ -26,7 +22,7 @@ module Devise
             options = args.extract_options!
 
             args.each do |callback|
-              callback_method = :"#{callback}_callback_wrap"
+              callback_method = "#{action}_#{method}_#{callback}_callback_wrap".gsub('?', '').to_sym
               send action, method, callback_method
               class_eval <<-METHOD, __FILE__, __LINE__ + 1
                 def #{callback_method}
