@@ -11,7 +11,7 @@ if Devise.data_mapper_validation_lib == 'dm-validations'
 
         # If the message is a Symbol, allow +default_error_message+ to generate
         # the message, including translation.
-        def add(field_name, message)
+        def add(field_name, message = nil)
           if message.kind_of?(Symbol)
             message = self.class.default_error_message(message, field_name)
           end
