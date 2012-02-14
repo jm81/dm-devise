@@ -1,12 +1,12 @@
 module DataMapper
   module Generators
-    class DeviseInstallGenerator < Rails::Generators::Base
+    class DeviseInstallGenerator < ::Rails::Generators::Base
       def generate_devise_install
         invoke 'devise:install'
       end
 
       def inject_data_mapper_content
-        devise_init_file = File.join(Rails.root, 'config', 'initializers', 'devise.rb')
+        devise_init_file = File.join(::Rails.root, 'config', 'initializers', 'devise.rb')
         validations = <<VALIDATIONS
   # ==> Validations Library
   # dm-devise adds some compatibility methods for either dm-validations or

@@ -2,7 +2,7 @@ require 'generators/devise/orm_helpers'
 
 module DataMapper
   module Generators
-    class DeviseGenerator < Rails::Generators::NamedBase
+    class DeviseGenerator < ::Rails::Generators::NamedBase
       include ::Devise::Generators::OrmHelpers
 
       def generate_model
