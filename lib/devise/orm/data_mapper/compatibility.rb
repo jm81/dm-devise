@@ -64,6 +64,23 @@ module Devise
         def email_was
           original_attributes[:email]
         end
+        
+        # Redefine properties_to_serialize in models for more secure defaults.
+        # By default, it removes from the serializable model all attributes that
+        # are *not* accessible. You can remove this default by using :force_exclude
+        # and passing a new list of attributes you want to exempt. All attributes
+        # given to :exclude will simply add names to exempt to Devise internal list.
+        def properties_to_serialize(options=nil)
+          options ||= {}
+          if options.key?(:force_except) || options.key?(:force_exclude)
+            options[:exclude] = options.delete(:force_except) || options.delete(:force_exclude)
+            super(options)
+          else
+            blacklist = Devise::Models::Authenticatable.const_defined?(:BLACKLIST_FOR_SERIALIZATION) ? Devise::Models::Authenticatable::BLACKLIST_FOR_SERIALIZATION : []
+            except = Array(options[:exclude]) + Array(options[:except]) + blacklist
+            super(options.merge(:exclude => except))
+          end
+        end
       end
     end
   end
