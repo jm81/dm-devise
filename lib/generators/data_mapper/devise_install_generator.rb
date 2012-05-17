@@ -19,13 +19,7 @@ module DataMapper
 VALIDATIONS
         inject_into_file devise_init_file, validations, :before => '  # ==> ORM configuration'
 
-        data_mapper_options = <<APPLY_SCHEMA
-
-  # ==> Apply Schema
-  # Tells if dm-devise should apply the devise database schema via property
-  # declarations. You may want to set this to false if working with a legacy
-  # schema.
-  # config.apply_schema = true
+        data_mapper_options = <<OPTIONS
 
   # ==> dm-validations Default Error Messages
   # Messages to use as the default DataMapper validation error messages. The
@@ -35,7 +29,7 @@ VALIDATIONS
   # :not_locked, and :expired). If set to false, the messages are left as
   # defined by the dm-validations gem. See dm-devise.rb for default.
   # config.data_mapper_validation_messages = {}
-APPLY_SCHEMA
+OPTIONS
       inject_into_file devise_init_file, data_mapper_options, :after => "orm/data_mapper'\n"
       end
     end

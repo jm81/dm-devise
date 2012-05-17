@@ -1,17 +1,17 @@
+*IMPORTANT:* The apply_schema option is removed in dm-devise 2.1. If you are upgrading, please read: https://github.com/jm81/dm-devise/wiki/How-to:-upgrade-to-devise-2.0-schema-style
+
 = dm-devise
 
 dm-devise lets you use devise (http://github.com/plataformatec/devise) with
 DataMapper.
 
-dm-devise is intended for use with Rails 3 and devise >= 1.1. It may work with
-earlier versions, but it's not been tested (if you try, please let Jared Morgan
-(http://github.com/jm81) know how it goes.)
+dm-devise is intended for use with Rails >= 3.2 and devise >= 2.1.
 
 This README only covers dm-devise specifics. Make sure to read the devise
 README http://github.com/plataformatec/devise/blob/master/README.rdoc
 
-Last tested against devise master: 2012-02-15, commit 93cf836564d368460d0f49b5c9051b805ba8ecc5
-Last tested against devise release 2.0.1, 1.5.3
+Last tested against devise master: 2012-05-06, commit 32f20dddd654d5dfbd99c821fe2918c191959b72
+Last tested against devise release 2.1.0.rc
 
 == Installation
 
@@ -23,7 +23,7 @@ Add dm-devise and dm gems to your Gemfile. The following gems are required:
   gem 'dm-timestamps',     '~> 1.2.0'
   gem 'dm-rails',          '~> 1.2.0'
   gem 'dm-validations',    '~> 1.2.0' # Do not include if using data_mapper_active_model
-  gem 'dm-devise',         '~> 2.0.1'
+  gem 'dm-devise',         '~> 2.1.0'
 
 If you're using Active Model validations, do not include dm-validations in your
 Gemfile.
@@ -74,11 +74,6 @@ active_model::
   anywhere in your app (or include it in your Gemfile). Things will break.
   The advantage to this is Active Model's I18n support for error messages, and
   it uses the same validations lib as devise does by default.
-
-=== apply_schema
-
-Tells if dm-devise should apply the devise database schema. You may want to
-set this to false if working with a legacy schema.
 
 === data_mapper_validation_messages
 

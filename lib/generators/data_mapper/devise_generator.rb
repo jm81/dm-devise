@@ -53,6 +53,9 @@ module DataMapper
 
   ## Token authenticatable
   # property :authentication_token, String, :length => 255
+
+  ## Invitable
+  # property :invitation_token, String, :length => 255
 RUBY
       end
     end
