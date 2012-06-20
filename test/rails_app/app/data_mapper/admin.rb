@@ -28,6 +28,9 @@ class Admin
   ## Lockable
   property :locked_at, DateTime
 
+  ## Attribute for testing route blocks
+  property :active, Boolean, :default => false
+
   include SharedAdmin
   include Shim
 end
