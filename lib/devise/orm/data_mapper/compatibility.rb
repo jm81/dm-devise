@@ -53,6 +53,10 @@ module Devise
           update(*args)
         end
 
+        def assign_attributes(params, *options)
+          self.attributes = params
+        end
+
         def invalid?
           !valid?
         end
@@ -64,7 +68,7 @@ module Devise
         def email_was
           original_attributes[:email]
         end
-        
+
         # Redefine properties_to_serialize in models for more secure defaults.
         # By default, it removes from the serializable model all attributes that
         # are *not* accessible. You can remove this default by using :force_exclude
