@@ -62,7 +62,7 @@ module Devise
         end
 
         def email_changed?
-          attribute_dirty?(:email)
+          attribute_dirty?(:email) && self.email.present?
         end
 
         def email_was
