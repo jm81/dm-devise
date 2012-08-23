@@ -20,6 +20,7 @@ module Devise
     :exclusion => '%s is reserved',
     :invalid => '%s is invalid',
     :confirmation => "%s doesn't match confirmation",
+    :confirmation_period_expired => '%s needs to be confirmed within %s, please request a new one',
     :accepted => '%s must be accepted',
     :nil => '%s must not be nil',
     :empty => "%s can't be empty",
