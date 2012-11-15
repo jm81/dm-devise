@@ -65,6 +65,10 @@ module Devise
           attribute_dirty?(:email) && self.email.present?
         end
 
+        def encrypted_password_changed?
+          attribute_dirty?(:email) && self.encrypted_password.present?
+        end
+
         def email_was
           original_attributes[:email]
         end
