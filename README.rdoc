@@ -14,7 +14,7 @@ dm-devise is intended for use with Rails >= 3.2 and devise >= 2.1.
 This README only covers dm-devise specifics. Make sure to read the devise
 README http://github.com/plataformatec/devise/blob/master/README.rdoc
 
-Last tested against devise master: 2012-11-15, commit 397fce1f9d37d1b6c6c93a2cf4d17edfe3afad46
+Last tested against devise master: 2012-12-22, commit 7c8f636b98810c21c339df484258c0b1446c0d43
 Last tested against devise release 2.1.2
 
 == Installation
