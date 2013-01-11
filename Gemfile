@@ -15,7 +15,7 @@ end
 DM_VERSION = '~> 1.2.0'
 
 group :development do
-  gem 'rails', '~> 3.2.0'
+  gem 'rails', '~> 3.2.6'
   gem 'dm-sqlite-adapter', DM_VERSION
 
   gem 'dm-core', DM_VERSION
