@@ -11,7 +11,7 @@ require "rails/test_help"
 require "orm/#{DEVISE_ORM}"
 
 I18n.load_path << "#{DEVISE_PATH}/test/support/locale/en.yml"
-require 'mocha'
+require 'mocha/setup'
 
 require 'webrat'
 Webrat.configure do |config|
