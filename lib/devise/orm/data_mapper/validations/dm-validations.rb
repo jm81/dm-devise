@@ -13,7 +13,8 @@ if Devise.data_mapper_validation_lib == 'dm-validations'
         # the message, including translation.
         def add(field_name, message = nil, active_record_options = {})
           if message.kind_of?(Symbol)
-            message = self.class.default_error_message(message, field_name, active_record_options.values)
+            message = resource.class.properties[:email].options[:messages][message] ||
+              self.class.default_error_message(message, field_name, active_record_options.values)
           end
           original_add(field_name, message) unless errors[field_name].include?(message)
         end
