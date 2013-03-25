@@ -13,7 +13,7 @@ if Devise.data_mapper_validation_lib == 'dm-validations'
         # the message, including translation.
         def add(field_name, message = nil, active_record_options = {})
           if message.kind_of?(Symbol)
-            message = self.class.default_error_message(message, field_name, active_record_options.values)
+            message = get_message(field_name, message, active_record_options)
           end
           original_add(field_name, message) unless errors[field_name].include?(message)
         end
@@ -22,6 +22,19 @@ if Devise.data_mapper_validation_lib == 'dm-validations'
         # #to_xml. Otherwise, we get a Missing template error
         def to_xml(options = {})
           @errors.to_hash.to_xml(options.merge(:root => 'errors'))
+        end
+
+        private
+
+        ##
+        # verify if a message is already define in property and use is if possible
+        #
+        def get_message(field_name, message = nil, active_record_options = {})
+          if resource.class.properties[:email].options[:messages]
+            resource.class.properties[:email].options[:messages][message]
+          else
+            self.class.default_error_message(message, field_name, active_record_options.values)
+          end
         end
       end
     end
