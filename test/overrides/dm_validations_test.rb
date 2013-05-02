@@ -24,9 +24,9 @@ if VALIDATION_LIB == 'dm-validations'
       assert_equal 'must be between 6 and 128 characters long', user.errors[:password].join
     end
 
-    undef test_should_complain_about_length_even_if_possword_is_not_required
+    undef test_should_complain_about_length_even_if_password_is_not_required
 
-    test 'should complain about length even if possword is not required' do
+    test 'should complain about length even if password is not required' do
       user = new_user(:password => 'x'*129, :password_confirmation => 'x'*129)
       user.stubs(:password_required?).returns(false)
       assert user.invalid?
