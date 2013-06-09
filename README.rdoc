@@ -8,8 +8,8 @@ dm-devise is intended for use with Rails >= 3.2 and devise >= 2.1.
 This README only covers dm-devise specifics. Make sure to read the devise
 README http://github.com/plataformatec/devise/blob/master/README.rdoc
 
-Last tested against devise master: 2013-05-01, commit d9d5ae3d58d4a9fad94107fa29e30af96ec9891b
-Last tested against devise release 2.2.3
+Last tested against devise master: 2013-05-07, commit f5e33089a032f44abd80225e34370c4fdd651a25
+Last tested against devise release 2.2.4
 
 == Installation
 
@@ -39,7 +39,7 @@ for three config options that have particular importance to dm-devise.
 
 Add Devise to any of your models using the generator:
 
-  rails generate data_mapper:devise MODEL
+  rails generate devise MODEL
 
 Read the README for devise at http://github.com/plataformatec/devise/blob/master/README.rdoc
 
